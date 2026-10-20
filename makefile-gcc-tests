@@ -5,18 +5,12 @@
 # Define the C compiler, linker and debugger
 CC = gcc
 LN = gcc
-CFLAGS = -std=c17 -Wall -Wstrict-prototypes -Wundef \
-#         -DSOFTWARE_LITTLE_BIT_ORDER -D_EL -D_ix86_ -DUT_VERBOSE \
-#		 -O0 -fprofile_arcs -ftest-coverage -fcondition-coverage \
-#		 $(INCLUDES) 
 
-CFLAGS = -O0 -fprofile-arcs -ftest-coverage -fcondition-coverage
+CFLAGS = -std=c17 -O0 -fprofile-arcs -ftest-coverage -fcondition-coverage
 		 
 TARGET = gccs_tests
 
 SRCS = gcc_testsuite_gcov-19.c
-
-DEBUGGER = -g
 
 ###############################################################################
 ## Rule to make the specified TARGET
@@ -43,7 +37,7 @@ clean ::
 	rm -f gccs_tests *.gcda *.gcno *.o
 
 gcov ::
-	gcov -abcdfgH gcc_testsuite_gcov-19.c -o gccs_tests-gcc_testsuite_gcov-19
+	gcov -abcdfg gcc_testsuite_gcov-19.c -o gccs_tests-gcc_testsuite_gcov-19 
 
 run ::
 	./$(TARGET)	

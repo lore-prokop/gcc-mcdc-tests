@@ -119,7 +119,7 @@ definitions and traceabilty information are contained in a separate file
 called 'requirements+trace.dox'.   
 
 \fn          int id  (int x)
-\detilas	 identity function, used as helper for function call
+\details	 identity function, used as helper for function call
 \satisfies   C-1 partial 1/2
 
 \fn          void mcdc001a (int a, int b)
@@ -218,15 +218,15 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 7-9/65
 
 \fn          void mcdc006c (int a, int b, int c)
-\details     next conditionals 3 deep, 2/2, 2/2, 2/2
+\details     next condtiionals 3 deep, 2/2, 2/2, 2/2
 \satisfies   A-9 partial, cases 10-12/65
 
 \fn          void mcdc006d (int a, int b, int c)
-\details     next conditionals 3 deep, 1/2, 1/2, 2/2
+\details     next condtiionals 3 deep, 1/2, 1/2, 2/2
 \satisfies   A-9 partial, cases 13-15/65
 
 \fn          void mcdc006e (int a, int b, int c, int d)
-\details     if statement - 4 variables (1 function), mixed &&||, 4/8
+\details     if statement - 4 variabales (1 function), mixed &&||, 4/8
 \satisfies   A-9 partial, cases 16/65
 
 \fn          void mcdc007a (int a, int b, int c, int d)
@@ -243,7 +243,7 @@ called 'requirements+trace.dox'.
 \satisfies   C-8 partial, cases 3/8
 
 \fn          int mcdc007d (int a, int b, int c, int d, int e)
-\details     nested if, multivariaable, multiple return, 1/2, 0/4, 0/2, 1/2
+\details     nested if, multivariaable, multple return, 1/2, 0/4, 0/2, 1/2
 \satisfies   C-8 partial, cases 4/8
 
 \fn          void mcdc008a (int a)
@@ -295,7 +295,7 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 17/65
 
 \fn          void mcdc012a (int a, int b, int c)
-\details     if - sequential expressions handled independent, 3/4, 2/2
+\details     if - sequencial expressions handles independent, 3/4, 2/2
 \satisfies   C-4 partial, cases 8/10
 
 \fn          void mcdc013a (int a, int b, int c)
@@ -433,23 +433,23 @@ called 'requirements+trace.dox'.
 \satisfies   A-3 partial, cases 30-50/152
 
 \fn          void mcdc023c (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variable - 4/24 (different variables masked)
+\details     mastking test - 13 variable - 4/24 (different variables masked)
 \satisfies   A-3 partial, cases 51-71/152
 
 \fn          void mcdc023d (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variable 4/24 (different variables masked)
+\details     masking test - 13 variabale 4/24 (different variables masked)
 \satisfies   A-3 partial, cases 72-92/152
 
 \fn          void mcdc023e (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variable 5/24
+\details     masking test - 13 variabale 5/24
 \satisfies   A-3 partial, cases 93-112/152
 
 \fn          void mcdc023f (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variable 5/24 (different variables masked)
+\details     masking test - 13 variabale 5/24 (different variables masked)
 \satisfies   A-3 partial, cases 113-132/152
 
 \fn          void mcdc023g (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variable 5/24 (different variables masked)
+\details     masking test - 13 variabale 5/24 (different variables masked)
 \satisfies   A-3 partial, cases 133-152/152
 
 \fn          void mcdc024a (int a, int b)
@@ -485,7 +485,7 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 45,57-59/65
 
 \fn          int mcdc024i (int a, int b, int c)
-\details     gotos/labels, multiple returns, 3 var, nested, 2/2, 2/2, 1/2, 1/2, 0/2, 0/2
+\details     gotos/lables, multiple returns, 3 var, nested, 2/2, 2/2, 1/2, 1/2, 0/2, 0/2
 \satisfies   A-9 partial, cases 60-65/65
 
 \fn          int mcdc025a (int a, int b, int c)

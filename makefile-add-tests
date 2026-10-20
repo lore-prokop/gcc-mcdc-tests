@@ -5,18 +5,13 @@
 # Define the C compiler, linker and debugger
 CC = gcc
 LN = gcc
-CFLAGS = -std=c17 -Wall -Wstrict-prototypes -Wundef \
-#         -DSOFTWARE_LITTLE_BIT_ORDER -D_EL -D_ix86_ -DUT_VERBOSE \
-#		 -O0 -fprofile_arcs -ftest-coverage -fcondition-coverage \
-#		 $(INCLUDES) 
 
-CFLAGS = -O0 -fprofile-arcs -ftest-coverage -fcondition-coverage
+CFLAGS = -std=c17 -Wstrict-prototypes -Wundef \
+          -O0 -fprofile-arcs -ftest-coverage -fcondition-coverage
 		 
 TARGET = add_tests
 
 SRCS = additional_gcc_testsuite.c
-
-DEBUGGER = -g
 
 ###############################################################################
 ## Rule to make the specified TARGET
@@ -44,7 +39,7 @@ clean ::
 	rm -f add_tests rm -f *.gcda *.gcno *.o
 
 gcov ::
-	gcov -abcdfgH additional_gcc_testsuite.c -o add_tests-additional_gcc_testsuite
+	gcov -abcdfg additional_gcc_testsuite.c -o add_tests-additional_gcc_testsuite 
 
 run ::
 		./add_tests

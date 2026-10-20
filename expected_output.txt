@@ -1,7 +1,8 @@
-rm -f gcc-mcdc-ver-tests-utassert_testrunner
-gcc -c -std=c17 -Wall -Wstrict-prototypes -Wundef -DSOFTWARE_LITTLE_BIT_ORDER -D_EL -D_ix86_ -DUT_VERBOSE -I. -I../ut-assert-minimal/inc/  gcc-mcdc-ver-tests-utassert_testrunner.c ../ut-assert-minimal/src/*.c  gcc-mcdc-ver-tests-utassert_testrunner.c
-gcc   gcc-mcdc-ver-tests-utassert_testrunner.o utassert.o utlist.o uttest.o uttools.o   -o gcc-mcdc-ver-tests-utassert_testrunner
-./gcc-mcdc-ver-tests-utassert_testrunner	
+=== SYSTEM & COMPILER INFO ===
+Ubuntu 24.04.4 LTS
+gcc (Ubuntu 16-20260315-1ubuntu1~24~ppa1) 16.0.1 20260315 (experimental) [trunk r16-8100-g3aca3bae8ee]
+gcov (Ubuntu 16-20260315-1ubuntu1~24~ppa1) 16.0.1 20260315 (experimental) [trunk r16-8100-g3aca3bae8ee]
+==============================
 
 Program 'gcc-mcdc-mver-tests-utassert_testrunner', Copyright (C) 2026 Lorraine Prokop
 This program comes with ABSOLUTELY NO WARRANTY; for details type 'less license.txt'
@@ -132,9 +133,9 @@ PASS: C22.11 add_C22_1: comma operator - inside return-like expression, left
 PASS: C22.12 add_C22_1: comma operator - inside return-like expression, right
 PASS: C22.13 add_C22_1: comma operator - unreachable branch, left
 PASS: C22.14 add_C22_1: comma operator - reachable branch, right
-PASS: C23.1 add_C23_1: conditional compilation - compiled out code shown as '-:', not '#####', see README.txt
-PASS: C23.2 add_C23_1: conditional compilation - compiled in left branch taken
-PASS: C23.3 add_C23_1: conditional compilation - compiled in right branch not taken
+PASS: C23.1  add_C23_1: conditional compilation - compiled out code shown as '-:', not '#####', see README.txt
+PASS: C23.2  add_C23_1: conditional compilation - compiled in left branch taken
+PASS: C23.3  add_C23_1: conditional compilation - compiled in right branch not taken
 PASS: B1.1   add_B1_1:  variable referencing in conditional - local variable
 PASS: B1.2   add_B1_1:  variable referencing in conditional - global variable
 PASS: B1.3   add_B1_1:  variable referencing in conditional - simple array

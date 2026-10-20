@@ -1,7 +1,7 @@
 ##############################################################################
 ## GNU Makefile for building gcc-mcdc verification tests
 
-UT_ASSERT_PATH=../ut-assert-minimal
+UT_ASSERT_PATH=../Mini_UT-Assert-1.0.0
 
 # Define the C compiler, linker and debugger
 CC = gcc

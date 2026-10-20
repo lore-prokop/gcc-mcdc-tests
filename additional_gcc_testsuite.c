@@ -108,7 +108,7 @@
  ** Helper Functions
  **===========================================================================*/
 int inv(int a) { return (-a); }  /* inverse   */
-int id(int a)  { return (a);  }  /* identity */
+int id(int a)  { return (a);  }  /* indentity */
 
 /*=========================================================================*//**
  ** \brief     Statement Coverage Tests - None Covered
@@ -570,7 +570,7 @@ i = i-1;            /* not executed */
  **===========================================================================*/
 
 /*=========================================================================*//**
- ** \brief     Killed assignment optimization impact - max optimization
+ ** \brief     Killed assignment optimization impact - max optimizataion
  ** \satisfies C-16 (partial 1/2) Killed assignment optimization impact
  ** \details   Exercises coverage behavior under maximum compiler optimization.
  **            The first assignment is optimized out by GCC at -O3, it is not 
@@ -815,7 +815,7 @@ void C19_2(void)  /* having no optimization for dead code WILL NOT effect covera
 	{
 		a = 2;   
 		/* this should NOT be optimized out if using -O0, but IS for line coverage and IS NOT for block coverage  */
-		/* though is indicated as optimized out by '-:' symbol in output */
+		/* though is indicated as optimized out by '-:' symbol  in output */
 	}
 }
 
@@ -856,7 +856,7 @@ void C20_1(void)  /* macros - defined at top of file */
 
     /* --- ADD_IF_EVEN(sum, x) macro test --- */
     int sum = 0;
-    ADD_IF_EVEN(sum, 3);    /* Compile Time Constant Optimized out at -O0 ->branch false */
+    ADD_IF_EVEN(sum, 3);    /* Compile Time Constant Optimzed out at -O0 ->branch false */
     ADD_IF_EVEN(sum, x4);    /* even → branch true, not optimized out since x is a variable */
     v1 = sum;
 
@@ -1025,7 +1025,7 @@ void C22_1(void)
 /*=========================================================================*//**
  ** \brief     conditional compilation verification tests
  ** \satisfies C-23 conditional compilation
- ** \details   Uses #ifdef to conditionally compile code to verify expected 
+ ** \details   Uses #ifdef to conditioally compile code to verify expected 
  **            coverage reporting.  When code is compiled out conditionally, 
  **            it does NOT show up in the coverage report as missed lines with
  **            a '#####' identifier.  It does show up in the code as '-:' 
@@ -1074,7 +1074,7 @@ void B1_1(void)   /* Boolean variable references (local variable, global variabl
   } struct_type;
   
   int is_array[2] = {0}; /* array */
-  struct_type is_array_of_struct[2];
+  struct_type is_array_of_struct[2] = {{0}, {0}};  // issue 1 uninitialized warning corrected;
 
   struct_type is_a_struct = {1};
   struct_type *is_a_struct_ptr = 0; /* pointer */
