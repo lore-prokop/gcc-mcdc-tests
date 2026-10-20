@@ -47,9 +47,11 @@ software usage criticalities and as well as to align with FAA standards.
 --------------------------------------------------------------------------------
 3. SYSTEM REQUIREMENTS
 --------------------------------------------------------------------------------
-- GCC version:  Tested with **gcc 14.3.0** and **gcov 14.3.0** on **Ubuntu 24.04.4 LTS**
-   - Other gcc/gcov versions have behaved differently (see issues) and are being
-     investigated (stand by)
+- GCC version(s):
+   - Tested with **gcc/gcov 14.3.0** on **Ubuntu 24.04.4 LTS**
+   - Tested with **gcc/gcov 16.0.1** on **Ubuntu 24.04.4 LTS**
+   - Other gcc/gcov versions may behave differently (see issues), please
+     write issue accordingly
 - Required Libraries / Dependencies:
    1) gcov-19.c - This is the testsuite that GCC uses for its releases, and 
       is available under GNU Public license from gcc's github site following 
@@ -72,8 +74,8 @@ software usage criticalities and as well as to align with FAA standards.
 --------------------------------------------------------------------------------
 The overall usage is as follows: 
 
-Step 1) gcc (v14.1 or later) compile the testsuites (gcc_testsuite_gcov-19.c and 
-        additional_gcc_testsuite.c) with no optimization, c-17, and coverage 
+Step 1) gcc (see versions above) compile the testsuites gcc_testsuite_gcov-19.c and 
+        additional_gcc_testsuite.) with no optimization, c-17, and coverage 
 		similar to the following:  
         gcc -std=c17 -Wall -Wstrict-prototypes -DUT_VERBOSE -O0 -fprofile_arcs \
 		    -ftest-coverage -fcondition-coverage 
@@ -81,7 +83,7 @@ Step 1) gcc (v14.1 or later) compile the testsuites (gcc_testsuite_gcov-19.c and
 		
 Step 2) Run gcov on both testsuites above to generate '.gcov' files used as input 
         to 'gcc-mcdc-ver-tests-utassert_testrunner.c, Ex.
-        gcov -abcdfgH additional_gcc_testsuite.c -o 
+        gcov -abcfg additional_gcc_testsuite.c -o 
 		      add_tests-additional_gcc_testsuite
 		- see makefile 'makefile-gcc-tests' and 'makefile-add'tests'
 		
