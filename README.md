@@ -53,13 +53,7 @@ software usage criticalities and as well as to align with FAA standards.
    - Other gcc/gcov versions may behave differently (see issues), please
      write issue accordingly
 - Required Libraries / Dependencies:
-   1) gcov-19.c - This is the testsuite that GCC uses for its releases, and 
-      is available under GNU Public license from gcc's github site following 
-	  this tree:  [gcc.git] / gcc / testsuite / gcc.misc-tests / gcov-19.c.
-	  It is used preferentially to test requirements if a test exists, then 
-	  supplemented by 'additional_gcc_testsuite.c' for comprehensive 
-	  requirements-based verification testing.
-   2) Mini_UT-Assert - The testrunner runs with a mini verion of NASA's Open Source
+   1) Mini_UT-Assert - The testrunner runs with a mini verion of NASA's Open Source
       'utassert' unit test framework, which is available here:
       https://github.com/lore-prokop/Mini_UT-Assert. The original UT-Assert
       is released under the NASA Open Source Agreement (NOSA), and is publicly
@@ -68,6 +62,13 @@ software usage criticalities and as well as to align with FAA standards.
       function calls, so these tests could be  converted into another unit test
       framework if desired. The testrunner is linked with the following utassert
       files only:  utassert.o, ut_hooks_stubs.o
+   2) gcov-19.c - This is the testsuite that GCC uses for its releases, and 
+      is available under GNU Public license from gcc's github site following 
+	  this tree:  [gcc.git] / gcc / testsuite / gcc.misc-tests / gcov-19.c.
+	  It is used preferentially to test requirements if a test exists, then 
+	  supplemented by 'additional_gcc_testsuite.c' for comprehensive 
+	  requirements-based verification testing.  It is re-distributed here under
+      name "gcc_testsuite_gcc-19.c", so no need to re-download.
 
 --------------------------------------------------------------------------------
 4. INSTALLATION and USAGE
@@ -75,21 +76,23 @@ software usage criticalities and as well as to align with FAA standards.
 The overall usage is as follows: 
 
 Step 1) gcc (see versions above) compile the testsuites gcc_testsuite_gcov-19.c and 
-        additional_gcc_testsuite.) with no optimization, c-17, and coverage 
-		similar to the following:  
-        gcc -std=c17 -Wall -Wstrict-prototypes -DUT_VERBOSE -O0 -fprofile_arcs \
-		    -ftest-coverage -fcondition-coverage 
-		- see makefile 'makefile-gcc-tests' and 'makefile-add-tests' 
+        additional_gcc_testsuite with no optimization, c-17, and coverage 
+		similar to the following:
+		
+        gcc -std=c17 -Wall -Wstrict-prototypes -DUT_VERBOSE -O0 -fprofile_arcs -ftest-coverage -fcondition-coverage 
+		(see makefile 'makefile-gcc-tests' and 'makefile-add-tests') 
 		
 Step 2) Run gcov on both testsuites above to generate '.gcov' files used as input 
         to 'gcc-mcdc-ver-tests-utassert_testrunner.c, Ex.
-        gcov -abcfg additional_gcc_testsuite.c -o 
-		      add_tests-additional_gcc_testsuite
-		- see makefile 'makefile-gcc-tests' and 'makefile-add'tests'
+		
+        gcov -abcfg additional_gcc_testsuite.c -o  add_tests-additional_gcc_testsuite
+		(see makefile 'makefile-gcc-tests' and 'makefile-add'tests')
 		
 Step 3) Compile and run the utassert testrunner. This program will analyze the 
         .gcov files produced above as input for proper coverage analysis.
-		include unit test switches: -DENABLE_HOOKS_AND_STUBS -DUT_VERBOSE
+		include unit test switches: 
+		
+		-DENABLE_HOOKS_AND_STUBS -DUT_VERBOSE
    	    (see makefile 'mcdc-ver-tests-utassert_testrunner')
 		
 Step 4) Verify Expected Results:  The testrunner will run one overall test
@@ -158,6 +161,11 @@ doxygen-related files:
 --------------------------------------------------------------------------------
 6. KNOWN FEATURES / CONSTRAINTS / USAGE GUIDELINES / NOTES
 --------------------------------------------------------------------------------
+* GCC/GCOV versions seem to alter '.gcov' output between releases, and this test
+suite interprets that output to determine success.  Please use the tested
+versions listed above, or enter an issue if you encounter assert failures with
+other versions of gcc.
+ 
 * C Language Version -
 The version of the C language standard chosen is C17, also known as 
 iso9899:2017.  GCC version 14.1 by default compiles C with GCC extensions,
